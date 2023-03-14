@@ -1,30 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
-import { NbAccordionModule, NbButtonModule, NbCardModule, NbListModule, NbProgressBarModule, NbRouteTabsetModule, NbStepperModule, NbTabsetModule, NbToggleModule, NbUserModule } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMatSelectSearchModule } from "ngx-mat-select-search";
 import { TableGenericComponent } from './table-generic/table-generic.component';
 import { ResponseModalComponent } from './response-modal/response-modal.component';
 import { ActionPopupComponent } from './action-popup/action-popup.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
+import { ResponseModalService } from './response-modal/response-modal.service';
+import { TemplateModule } from './template.module';
+import { CommonTableComponent } from './common-table/common-table.component';
 
 
 @NgModule({
   imports: [
+    //nebular modules
+    TemplateModule,
     CommonModule,
-    //Nb modules
-    NbTabsetModule,
-    NbRouteTabsetModule,
-    NbStepperModule,
-    NbCardModule,
-    NbButtonModule,
-    NbListModule,
-    NbToggleModule,
-    NbAccordionModule,
-    MaterialModule,
-    NbUserModule,
-    NbProgressBarModule,
     //materialmodules
     MaterialModule,
     NgxMatSelectSearchModule,
@@ -36,24 +28,16 @@ import { MultiSelectComponent } from './multi-select/multi-select.component';
     TableGenericComponent,
     ResponseModalComponent,
     ActionPopupComponent,
-    MultiSelectComponent
+    MultiSelectComponent,
+    CommonTableComponent
   ],
   exports: [
-    //Nb modules
-    NbTabsetModule,
-    NbRouteTabsetModule,
-    NbStepperModule,
-    NbCardModule,
-    NbButtonModule,
-    NbListModule,
-    NbToggleModule,
-    NbAccordionModule,
-    MaterialModule,
-    NbUserModule,
-    NbProgressBarModule,
+    //nebular modules
+    TemplateModule,
     //materialmodules
     MaterialModule,
     NgxMatSelectSearchModule,
+
     //forms modules
     FormsModule,
     ReactiveFormsModule,
@@ -61,7 +45,10 @@ import { MultiSelectComponent } from './multi-select/multi-select.component';
     TableGenericComponent,
     ResponseModalComponent,
     ActionPopupComponent,
-    MultiSelectComponent
-  ]
+    MultiSelectComponent,
+    CommonTableComponent
+  ],
+  entryComponents: [ActionPopupComponent],
+  providers: [ResponseModalService],
 })
 export class CommonSharedModule { }

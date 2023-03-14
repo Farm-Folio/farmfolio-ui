@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import {
   MatDialog,
   MatDialogRef,
-  MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
 import { ResponseModalComponent } from "./response-modal.component";
 
@@ -12,13 +11,13 @@ import { ResponseModalComponent } from "./response-modal.component";
 export class ResponseModalService {
   matDialogRef: MatDialogRef<any>;
   statusMatDialogRef: MatDialogRef<any>;
-  constructor(private matDialog: MatDialog) {}
+  constructor(private matDialog: MatDialog) { }
   OpenStatusModal = (icon: string, title: string, description: string) => {
     this.statusMatDialogRef = this.matDialog.open(ResponseModalComponent, {
       data: { icon: icon, title: title, description: description },
       disableClose: true,
-       width: "20%",
-       height:"auto"
+      width: "20%",
+      height: "auto"
     });
 
     this.statusMatDialogRef.afterClosed().subscribe((res) => {
@@ -71,23 +70,23 @@ export class ResponseModalService {
     this.statusMatDialogRef.close(true);
   };
 
-  openModalRight=(component: any, editData: any)=>{
+  openModalRight = (component: any, editData: any) => {
     return (this.matDialogRef = this.matDialog.open(component, {
       height: "100%",
       width: "40%",
       data: editData,
       disableClose: true,
-      position:{right:'0'}
+      position: { right: '0' }
     }));
   }
 
-  openModalRightLG=(component: any, editData: any)=>{
+  openModalRightLG = (component: any, editData: any) => {
     return (this.matDialogRef = this.matDialog.open(component, {
       height: "100%",
       width: "50%",
       data: editData,
       disableClose: true,
-      position:{right:'0'}
+      position: { right: '0' }
     }));
   }
 }

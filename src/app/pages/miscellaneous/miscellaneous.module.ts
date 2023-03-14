@@ -10,8 +10,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   imports: [
     ThemeModule,
-    NbCardModule,
-    NbButtonModule,
     MiscellaneousRoutingModule,
     CommonSharedModule
   ],
