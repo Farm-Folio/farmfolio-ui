@@ -23,7 +23,7 @@
           </th>
         </tr>
         <tr>
-          <div class="form-group col-6" *ngIf="searchColumns[i]?.canShow">
+          <div class="form-group" *ngIf="searchColumns[i]?.canShow">
             <div class="row">
               <input
                 type="text"
@@ -32,7 +32,7 @@
                 id="{{ searchColumns[i]?.name }}"
                 formcontrolname="{{ searchColumns[i]?.name }}"
                 shape="rectangle"
-                placeholder="Rectangle border"
+                [placeholder]="searchColumns[i]?.name"
                 (keyup)="search($event)"
                 autocomplete="off"
               />
