@@ -14,6 +14,11 @@ const routes: Routes = [{
         .then(m => m.MiscellaneousModule),
     },
     {
+      path: 'user',
+      loadChildren: () => import('./app-user/app-user.module')
+        .then(m => m.AppUserModule),
+    },
+    {
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',

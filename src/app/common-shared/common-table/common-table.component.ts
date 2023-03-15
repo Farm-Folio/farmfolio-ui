@@ -47,36 +47,6 @@ export class CommonTableComponent implements OnInit {
   constructor(private responseModalService: ResponseModalService) { }
 
   ngOnInit() {
-    this.data = [
-      {
-        "name": "Dinesh",
-        "lastName": "K",
-        "gender": "male",
-        "email": "dinesh@calpyte.com",
-        "village": "tgide"
-      },
-      {
-        "name": "Dinesh",
-        "lastName": "K",
-        "gender": "male",
-        "email": "dinesh@calpyte.com",
-        "village": "tgide"
-      },
-      {
-        "name": "Dinesh",
-        "lastName": "K",
-        "gender": "male",
-        "email": "dinesh@calpyte.com",
-        "village": "tgide"
-      },
-      {
-        "name": "Dinesh",
-        "lastName": "K",
-        "gender": "male",
-        "email": "dinesh@calpyte.com",
-        "village": "tgide"
-      },
-    ]
     if (this.datatrigger) {
       this.datatrigger.subscribe((data) => {
 
@@ -128,7 +98,9 @@ export class CommonTableComponent implements OnInit {
     if (objIndex !== -1) {
       this.filters[objIndex] = filter;
     } else {
-      this.filters.push(filter);
+      if (filter.value) {
+        this.filters.push(filter);
+      }
     }
     this.searchEvent.emit(this.filters);
   };
@@ -142,6 +114,7 @@ export class CommonTableComponent implements OnInit {
 
   reset = () => {
     $('.inputs').val(null);
+    this.searchEvent.emit([]);
   }
 
 }
