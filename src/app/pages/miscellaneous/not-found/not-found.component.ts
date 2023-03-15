@@ -9,7 +9,7 @@ import { Component, EventEmitter } from '@angular/core';
 export class NotFoundComponent {
 
   public datatrigger: EventEmitter<any> = new EventEmitter();
-  displayedColumns: string[] = ['name', 'lastName', 'gender', 'Email', 'village', 'actions'];
+  displayedColumns: string[] = ['name', 'lastName', 'gender', 'Email', 'village'];
   searchColumns: any[] = [{ name: 'name', canShow: true }, { name: 'lastName', canShow: true }, { name: 'gender', canShow: true }, { name: 'email', canShow: true }, { name: "village.name", canShow: true }];
   definedColumns = ['name', 'lastName', 'gender', 'email', 'village'];
   postPerPage: number = 10;

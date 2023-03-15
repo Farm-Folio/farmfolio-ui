@@ -20,6 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { CommonSharedModule } from './common-shared/common-shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,7 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    CommonSharedModule
   ],
   bootstrap: [AppComponent],
 })
