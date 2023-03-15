@@ -1,4 +1,5 @@
 import { NbMenuItem } from '@nebular/theme';
+import { title } from 'process';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -10,4 +11,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'FEATURES',
     group: true,
   },
+  {
+    title: 'User',
+    icon: 'home-outline',
+    children: [
+      {
+        title: 'Farmer',
+        icon: 'home-outline',
+        link: '/pages/user',
+      }
+
+
+    ]
+  }
 ];

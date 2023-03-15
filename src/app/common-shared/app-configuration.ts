@@ -8,4 +8,9 @@ export class AppConfiguration {
 
   baseUrl = environment.baseUrl;
 
+  //user
+  user = {
+    page: 'user/page'
+  }
+
 }
