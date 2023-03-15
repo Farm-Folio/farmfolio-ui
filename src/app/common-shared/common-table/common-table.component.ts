@@ -47,6 +47,36 @@ export class CommonTableComponent implements OnInit {
   constructor(private responseModalService: ResponseModalService) { }
 
   ngOnInit() {
+    this.data = [
+      {
+        "name": "Dinesh",
+        "lastName": "K",
+        "gender": "male",
+        "email": "dinesh@calpyte.com",
+        "village": "tgide"
+      },
+      {
+        "name": "Dinesh",
+        "lastName": "K",
+        "gender": "male",
+        "email": "dinesh@calpyte.com",
+        "village": "tgide"
+      },
+      {
+        "name": "Dinesh",
+        "lastName": "K",
+        "gender": "male",
+        "email": "dinesh@calpyte.com",
+        "village": "tgide"
+      },
+      {
+        "name": "Dinesh",
+        "lastName": "K",
+        "gender": "male",
+        "email": "dinesh@calpyte.com",
+        "village": "tgide"
+      },
+    ]
     if (this.datatrigger) {
       this.datatrigger.subscribe((data) => {
 

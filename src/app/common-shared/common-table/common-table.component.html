@@ -1,53 +1,79 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col" *ngFor="let heading of displayedColumns">
-        {{ heading | titlecase }}
-      </th>
-    </tr>
-    <tr>
-      <th scope="col" *ngFor="let searchCol of searchColumns; let i = index">
-        <input
-          type="text"
-          nbInput
-          fullWidth
-          [id]="searchCol?.name"
-          class="inputs"
-          [formcontrolname]="searchCol?.name"
-          shape="rectangle"
-          [placeholder]="'Search ' + displayedColumns[i]"
-          (keyup)="search($event)"
-          autocomplete="off"
-        />
-      </th>
-      <th>
-        <button class="btn btn-outline-secondary" (click)="reset()">
-          Reset
-        </button>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let row of data">
-      <td *ngFor="let column of definedColumns">
-        <p
-          matTooltip="{{ row[column]?.name }}"
-          *ngIf="row[column]?.name"
-          class="ellipsis"
-        >
-          {{ row[column]?.name }}
-        </p>
-        <p
-          matTooltip="{{ row[column] }}"
-          *ngIf="!row[column]?.name"
-          class="ellipsis"
-        >
-          {{ row[column] }}
-        </p>
-      </td>
-    </tr>
-    <tr *ngIf="data?.length === 0">
-      <td [colspan]="displayedColumns?.length">No Records Found</td>
-    </tr>
-  </tbody>
-</table>
+<nb-card>
+  <nb-card-body>
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th scope="col" *ngFor="let heading of displayedColumns">
+            <b>{{ heading | titlecase }}</b>
+          </th>
+          <th *ngIf="isAction">Actions</th>
+        </tr>
+        <tr *ngIf="isAction">
+          <th
+            scope="col"
+            *ngFor="let searchCol of searchColumns; let i = index"
+          >
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              [id]="searchCol?.name"
+              class="inputs"
+              [formcontrolname]="searchCol?.name"
+              shape="rectangle"
+              [placeholder]="'Search ' + displayedColumns[i]"
+              (keyup)="search($event)"
+              autocomplete="off"
+            />
+          </th>
+          <th style="width: 8%">
+            <button type="button" class="btn btn-light" (click)="reset()">
+              Reset
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data" class="data-rows">
+          <td *ngFor="let column of definedColumns">
+            <p
+              [matTooltip]="row[column]?.name"
+              *ngIf="row[column]?.name"
+              class="ellipsis"
+            >
+              {{ row[column]?.name }}
+            </p>
+            <p
+              [matTooltip]="row[column]"
+              *ngIf="!row[column]?.name"
+              class="ellipsis"
+            >
+              {{ row[column] }}
+            </p>
+          </td>
+          <td *ngIf="isAction">
+            <mat-icon style="color: blue" *ngIf="isDetail" matTooltip="detail"
+              >remove_red_eye</mat-icon
+            >
+            <mat-icon style="color: blue" matTooltip="edit">edit</mat-icon>
+            <mat-icon style="color: red" matTooltip="remove" *ngIf="isDelete"
+              >delete</mat-icon
+            >
+          </td>
+        </tr>
+        <tr *ngIf="data?.length === 0">
+          <td [colspan]="displayedColumns?.length">No Records Found</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isPagination">
+      <mat-paginator
+        [length]="count"
+        [pageSizeOptions]="[10, 25, 100]"
+        showFirstLastButtons
+        (page)="onPaginate($event)"
+      >
+      </mat-paginator>
+    </div>
+  </nb-card-body>
+</nb-card>
