@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppUserComponent } from './app-user.component';
 import { AppUserRoutes } from './app-user.routing';
 import { CommonSharedModule } from '../../common-shared/common-shared.module';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { CommonSharedModule } from '../../common-shared/common-shared.module';
     AppUserRoutes,
     CommonSharedModule
   ],
-  declarations: [AppUserComponent]
+  declarations: [AppUserComponent, UserAddComponent]
 })
 export class AppUserModule { }
