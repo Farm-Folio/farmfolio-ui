@@ -9,6 +9,7 @@
 }
 mat-icon {
   font-size:large;
+  color:#AEB6BF;
 }
 
 .table {
@@ -16,3 +17,6 @@ mat-icon {
   // box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 
+mat-icon:hover{
+  color:#17202A
+}

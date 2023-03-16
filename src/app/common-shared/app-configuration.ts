@@ -10,7 +10,11 @@ export class AppConfiguration {
 
   //user
   user = {
-    page: 'user/page'
+    page: 'user/page',
+    save: '',
+    delete: '',
+    byId: 'user/by-id?id=',
+    getAll: ''
   }
 
 }

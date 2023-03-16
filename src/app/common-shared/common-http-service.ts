@@ -2,11 +2,9 @@ import { Injectable, NgZone, Injector } from "@angular/core";
 import {
   HttpClient,
   HttpHeaders,
-  HttpEvent,
-  HttpRequest,
 } from "@angular/common/http";
 import { AppConfiguration } from "./app-configuration";
-import { throwError, of, Observable } from "rxjs";
+import { throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { CommonToastrService } from "./common-toastr/common-toastr.service";
 
@@ -34,7 +32,7 @@ export class CommonHttpService {
     this.baseUrl = this.appConfiguration.baseUrl;
   }
 
-  httpGet = (url: string) => {
+  get = (url: string) => {
     return this.httpClient.get(this.baseUrl + url, httpOptions).pipe(
       catchError((error) => {
         this.errorHandler(error);
@@ -43,7 +41,7 @@ export class CommonHttpService {
     );
   };
 
-  httpPost = (url: string, data: any) => {
+  post = (url: string, data: any) => {
     let header = new HttpHeaders();
     header.set("Access-Control-Allow-Origin", "*");
     return this.httpClient
@@ -55,7 +53,8 @@ export class CommonHttpService {
         })
       );
   };
-  httpDelete = (url: string) => {
+
+  delete = (url: string) => {
     return this.httpClient
       .delete(this.baseUrl + url, httpOptions)
       .pipe(
@@ -65,6 +64,16 @@ export class CommonHttpService {
         })
       );
   };
+
+  pageObj = (post: any, page: any, filter: any) => {
+    return {
+      "draw": Math.floor((Math.random() * 100) + 1),
+      "filter": filter,
+      "pageNo": page,
+      "pageSize": post
+    }
+
+  }
 
   errorHandler = (error: any) => {
     if (error?.error?.message) {
