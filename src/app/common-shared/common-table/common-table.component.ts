@@ -5,8 +5,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActionPopupComponent } from '../action-popup/action-popup.component';
 import { ResponseModalService } from '../response-modal/response-modal.service';
-import { Page } from '../table-generic/Page';
-import { TableGenericComponent } from '../table-generic/table-generic.component';
 
 @Component({
   selector: 'app-common-table',
@@ -37,7 +35,6 @@ export class CommonTableComponent implements OnInit {
   @Input() isPagination: boolean = true;
 
   rows = new MatTableDataSource([]);
-  page = new Page();
   postPerPage: number = 10;
   pageNumber: number = 1;
   deleteObject: any;
@@ -114,7 +111,7 @@ export class CommonTableComponent implements OnInit {
 
   reset = () => {
     $('.inputs').val(null);
-    this.searchEvent.emit([]);
+    this.clearFilter()
   }
 
 }

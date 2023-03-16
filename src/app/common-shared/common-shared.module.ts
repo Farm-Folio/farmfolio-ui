@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMatSelectSearchModule } from "ngx-mat-select-search";
-import { TableGenericComponent } from './table-generic/table-generic.component';
 import { ResponseModalComponent } from './response-modal/response-modal.component';
 import { ActionPopupComponent } from './action-popup/action-popup.component';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
@@ -25,11 +24,10 @@ import { CommonTableComponent } from './common-table/common-table.component';
     ReactiveFormsModule,
   ],
   declarations: [
-    TableGenericComponent,
     ResponseModalComponent,
     ActionPopupComponent,
     MultiSelectComponent,
-    CommonTableComponent
+    CommonTableComponent,
   ],
   exports: [
     //nebular modules
@@ -42,11 +40,10 @@ import { CommonTableComponent } from './common-table/common-table.component';
     FormsModule,
     ReactiveFormsModule,
     //components
-    TableGenericComponent,
     ResponseModalComponent,
     ActionPopupComponent,
     MultiSelectComponent,
-    CommonTableComponent
+    CommonTableComponent,
   ],
   entryComponents: [ActionPopupComponent],
   providers: [ResponseModalService],

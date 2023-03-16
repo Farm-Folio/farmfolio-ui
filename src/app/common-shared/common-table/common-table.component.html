@@ -1,10 +1,16 @@
-<table class="table">
+<table class="table table-sm">
   <thead>
     <tr>
-      <th scope="col" *ngFor="let heading of displayedColumns">
-        <b>{{ heading | titlecase }}</b>
+      <th
+        scope="col"
+        *ngFor="let heading of displayedColumns"
+        style="padding: 1%; color: #566573"
+      >
+        {{ heading | titlecase }}
       </th>
-      <th style="width: 10%" *ngIf="isAction">Actions</th>
+      <th style="width: 10%; padding: 1%; color: #566573" *ngIf="isAction">
+        Actions
+      </th>
     </tr>
     <tr *ngIf="isAction">
       <th scope="col" *ngFor="let searchCol of searchColumns; let i = index">
@@ -47,11 +53,11 @@
         </p>
       </td>
       <td *ngIf="isAction">
-        <mat-icon style="color: blue" *ngIf="isDetail" matTooltip="detail"
+        <mat-icon *ngIf="isDetail" (click)="detail(row?.id)" matTooltip="detail"
           >remove_red_eye</mat-icon
         >
-        <mat-icon style="color: blue" matTooltip="edit">edit</mat-icon>
-        <mat-icon style="color: red" matTooltip="remove" *ngIf="isDelete"
+        <mat-icon matTooltip="edit" (click)="edit(row?.id)">edit</mat-icon>
+        <mat-icon matTooltip="remove" *ngIf="isDelete" (click)="delete(row?.id)"
           >delete</mat-icon
         >
       </td>
@@ -70,3 +76,4 @@
   >
   </mat-paginator>
 </div>
+<div></div>
