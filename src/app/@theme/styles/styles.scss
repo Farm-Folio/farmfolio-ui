@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 // themes - our custom or/and out of the box themes
 @import 'themes';
@@ -39,14 +40,15 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', 'sans-serif';
 }
 nb-card {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
-.breadcrumb{
-  background-color: transparent;
+
+.breadcrumb {
+  background-color: 'transparent';
 }
 .page-header {
-  display: flex; justify-content: space-between; align-items: center
+  display: 'flex'; justify-content: 'space-between'; align-items: 'center';
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Roboto', 'Helvetica Neue', 'sans-serif'; }
