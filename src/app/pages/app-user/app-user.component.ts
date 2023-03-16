@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable, Subscription } from 'rxjs';
+import { AppConfiguration } from '../../common-shared/app-configuration';
+import { CommonHttpService } from '../../common-shared/common-http-service';
 import { ResponseModalService } from '../../common-shared/response-modal/response-modal.service';
-import { AppUserService } from './app-user.service';
 import { UserAddComponent } from './user-add/user-add.component';
 
 @Component({
@@ -22,7 +23,10 @@ export class AppUserComponent implements OnInit {
   matDialogRef: MatDialogRef<any>;
 
 
-  constructor(private userService: AppUserService, private responseModalService: ResponseModalService) { }
+  constructor(
+    private httpService: CommonHttpService,
+    private responseModalService: ResponseModalService,
+    private api: AppConfiguration) { }
 
   ngOnInit() {
     this.loadData();
@@ -36,7 +40,13 @@ export class AppUserComponent implements OnInit {
   };
 
   loadData = () => {
-    this.userService.getUserPage(this.postPerPage, this.pageNumber, this.filters)
+    let data = {
+      "draw": Math.floor((Math.random() * 100) + 1),
+      "filter": this.filters,
+      "pageNo": this.pageNumber,
+      "pageSize": this.postPerPage
+    }
+    this.httpService.post(this.api.user.page, data)
       .toPromise()
       .then((datas: any) => {
         this.users = datas?.data;
