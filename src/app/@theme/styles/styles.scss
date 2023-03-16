@@ -47,8 +47,16 @@ nb-card {
   background-color: 'transparent';
 }
 .page-header {
-  display: 'flex'; justify-content: 'space-between'; align-items: 'center';
+  display: 'flex';
+  justify-content: 'space-between';
+  align-items: 'center';
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', 'Helvetica Neue', 'sans-serif'; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', 'sans-serif';
+}
